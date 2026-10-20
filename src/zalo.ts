@@ -1,11 +1,6 @@
 import { loginQR, LoginQRCallbackEventType, type LoginQRCallback } from "./apis/loginQR.js";
 import { getServerInfo, login } from "./apis/login.js";
-import {
-    createContext,
-    isContextSession,
-    type ContextBase,
-    type Options,
-} from "./context.js";
+import { createContext, isContextSession, type ContextBase, type Options } from "./context.js";
 import { generateZaloUUID, logger } from "./utils.js";
 
 import toughCookie from "tough-cookie";
@@ -123,7 +118,8 @@ export class Zalo {
     ) {
         if (!options) options = {};
         if (!options.userAgent)
-            options.userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0";
+            options.userAgent =
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36";
         if (!options.language) options.language = "vi";
 
         const ctx = createContext(this.options.apiType, this.options.apiVersion);

@@ -175,22 +175,27 @@ async function generate(
     error_message: string;
 }> {
     const form = new URLSearchParams();
-    form.append("continue", "https://zalo.me/pc");
+    form.append("continue", "https://chat.zalo.me/");
+    form.append("cliGenQR", "1");
     form.append("v", version);
 
     return await request(ctx, "https://id.zalo.me/account/authen/qr/generate", {
         headers: {
-            accept: "*/*",
-            "accept-language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5",
+            Accept: "*/*",
+            "Accept-Language": "en-US,en;q=0.9,vi;q=0.8,fr-FR;q=0.7,fr;q=0.6",
             "content-type": "application/x-www-form-urlencoded",
+            dnt: "1",
+            Origin: "https://id.zalo.me",
             priority: "u=1, i",
-            "sec-ch-ua": '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"',
+            "sec-ch-ua": '"Chromium";v="154", "Google Chrome";v="154", "Not A(Brand";v="99"',
+            "sec-ch-ua-full-version": '"154.0.8037.58"',
             "sec-ch-ua-mobile": "?0",
             "sec-ch-ua-platform": '"Windows"',
+            "sec-ch-ua-platform-version": '"19.0.0"',
             "sec-fetch-dest": "empty",
             "sec-fetch-mode": "cors",
             "sec-fetch-site": "same-origin",
-            Referer: "https://id.zalo.me/account?continue=https%3A%2F%2Fzalo.me%2Fpc",
+            Referer: "https://id.zalo.me/account?continue=https%3A%2F%2Fchat.zalo.me%2F",
             "Referrer-Policy": "strict-origin-when-cross-origin",
         },
         body: form,
